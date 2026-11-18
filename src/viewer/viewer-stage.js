@@ -18,9 +18,9 @@ function injectStyles() {
     '.vs-tool{position:relative;display:flex;align-items:center;gap:6px;background:rgba(16,21,28,.82);' +
       'border:1px solid #2a323d;color:#cdd6e0;border-radius:8px;padding:5px 9px;' +
       'font:inherit;font-size:.76rem;line-height:1.2;cursor:pointer}' +
-    '.vs-tool:hover{border-color:#4cc9f0;color:#e6edf3}' +
-    '.vs-tool:focus-visible{outline:2px solid #4cc9f0;outline-offset:2px}' +
-    '.vs-tool[aria-expanded="true"]{border-color:#4cc9f0;color:#e6edf3}' +
+    '.vs-tool:hover{border-color:var(--accent);color:#e6edf3}' +
+    '.vs-tool:focus-visible{outline:2px solid var(--accent);outline-offset:2px}' +
+    '.vs-tool[aria-expanded="true"]{border-color:var(--accent);color:#e6edf3}' +
     '.vs-tool svg{width:14px;height:14px;flex:0 0 auto;fill:none;stroke:currentColor;' +
       'stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}' +
     '.vs-panel{position:absolute;top:calc(100% + 6px);right:0;z-index:4;width:212px;padding:11px;' +
@@ -32,9 +32,9 @@ function injectStyles() {
     '.vs-opts{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 9px}' +
     '.vs-opt{background:transparent;border:1px solid #2a323d;color:#9aa4b2;border-radius:999px;' +
       'padding:4px 11px;font:inherit;font-size:.76rem;cursor:pointer}' +
-    '.vs-opt:hover{border-color:#4cc9f0;color:#cdd6e0}' +
-    '.vs-opt:focus-visible{outline:2px solid #4cc9f0;outline-offset:2px}' +
-    '.vs-opt[aria-pressed="true"]{background:rgba(86,156,255,.16);border-color:#4cc9f0;color:#e6edf3}' +
+    '.vs-opt:hover{border-color:var(--accent);color:#cdd6e0}' +
+    '.vs-opt:focus-visible{outline:2px solid var(--accent);outline-offset:2px}' +
+    '.vs-opt[aria-pressed="true"]{background:var(--accent-soft);border-color:var(--accent);color:#e6edf3}' +
     '.vs-row{display:flex;align-items:center;gap:8px;color:#9aa4b2;font-size:.76rem}' +
     '.vs-row[hidden]{display:none}' +
     '.vs-row input[type=color]{width:34px;height:24px;padding:0;background:none;' +
@@ -53,8 +53,8 @@ function injectStyles() {
     '.vs-slide{display:grid;grid-template-columns:1fr auto;align-items:center;gap:1px 8px}' +
     '.vs-slide label{color:#9aa4b2;font-size:.76rem}' +
     '.vs-slide output{color:#cdd6e0;font-size:.76rem;font-variant-numeric:tabular-nums}' +
-    '.vs-slide input{grid-column:1/-1;width:100%;margin:2px 0 0;accent-color:#4cc9f0;cursor:pointer}' +
-    '.vs-slide input:focus-visible{outline:2px solid #4cc9f0;outline-offset:3px}' +
+    '.vs-slide input{grid-column:1/-1;width:100%;margin:2px 0 0;accent-color:var(--accent);cursor:pointer}' +
+    '.vs-slide input:focus-visible{outline:2px solid var(--accent);outline-offset:3px}' +
     '@media (max-width:560px){.vs-tool span{position:absolute;width:1px;height:1px;' +
       'overflow:hidden;clip-path:inset(50%);white-space:nowrap}.vs-tool{padding:6px}}';
   var s = document.createElement('style'); s.textContent = css; document.head.appendChild(s);

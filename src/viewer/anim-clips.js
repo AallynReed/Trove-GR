@@ -8,15 +8,15 @@ function injectStyles() {
   const css =
     '.mv-bar{display:flex;flex-wrap:wrap;gap:7px;align-items:center;padding:10px 12px;border-top:1px solid var(--line,#232a33)}' +
     '.mv-btn{background:var(--raised,#1b2129);border:1px solid var(--line-strong,#2a323d);color:var(--text,#cdd6e0);border-radius:8px;padding:6px 12px;font-size:.82rem;cursor:pointer}' +
-    '.mv-btn:hover{border-color:var(--accent,#4cc9f0)}.mv-btn.on{background:var(--accent-soft,rgba(86,156,255,.16));border-color:var(--accent,#4cc9f0);color:var(--text,#e6edf3)}' +
+    '.mv-btn:hover{border-color:var(--accent,#f5a623)}.mv-btn.on{background:var(--accent-soft,rgba(245,166,35,.14));border-color:var(--accent,#f5a623);color:var(--text,#e6edf3)}' +
     '.mv-btn.mv-loading{opacity:.55;cursor:progress}' +
-    '.mv-btn:focus-visible,.mv-cat:focus-visible{outline:2px solid var(--accent,#4cc9f0);outline-offset:1px}' +
+    '.mv-btn:focus-visible,.mv-cat:focus-visible{outline:2px solid var(--accent,#f5a623);outline-offset:1px}' +
     '.mv-hint{color:var(--text-3,#858c9c);font-size:.74rem;margin-left:auto;flex:0 1 auto;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}' +
     '.mv-cats,.mv-clips{display:flex;flex-wrap:wrap;gap:7px;align-items:center;flex:1 0 100%;min-width:0}' +
     '.mv-clips{max-height:min(5.6rem,26vh);overflow-y:auto;overscroll-behavior:contain}' +
     '.mv-cat{background:transparent;border:1px solid var(--line-strong,#2a323d);color:var(--text-2,#9aa4b2);border-radius:999px;padding:3px 11px;font-size:.75rem;cursor:pointer;display:inline-flex;gap:5px;align-items:center}' +
-    '.mv-cat:hover{border-color:var(--accent,#4cc9f0);color:var(--text,#cdd6e0)}' +
-    '.mv-cat.on{background:var(--accent-soft,rgba(86,156,255,.16));border-color:var(--accent,#4cc9f0);color:var(--text,#e6edf3)}' +
+    '.mv-cat:hover{border-color:var(--accent,#f5a623);color:var(--text,#cdd6e0)}' +
+    '.mv-cat.on{background:var(--accent-soft,rgba(245,166,35,.14));border-color:var(--accent,#f5a623);color:var(--text,#e6edf3)}' +
     '.mv-cat-n{opacity:.6;font-variant-numeric:tabular-nums}' +
     '.mv-sep{width:1px;height:18px;background:var(--line-strong,#2a323d);flex:0 0 auto}';
   const tag = document.createElement('style');
