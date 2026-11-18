@@ -81,7 +81,7 @@ A game creature opened from **Creatures** uses its prefab's own part list. When 
 | `public/rigs/anim/<rig>/<clip>.anim` | One clip of attach-point transforms per frame (format below) |
 | `public/rigs/graph/<rig>.graph.json` | The rig's animation state machine: nodes with the clips they play, and edges with their trigger (`onloop`, `onrequest`, ...) and blend time |
 | `public/rigs/index.json` | Every rig with its attach point and clip counts (`npm run rig-index`) |
-| `public/data/bindings.json` | The prefab bindings, in the game's row order (`npm run bindings -- <csv>`) |
+| `public/data/bindings.json` | The prefab bindings, sorted by prefab then blueprint as the reference server loads them (`npm run bindings -- <csv>`) |
 | `public/brdf-map.png` | The game's specular lobe atlas |
 
 A clip is little-endian: the 8-byte magic `TANIM1\0\0` or `TANIM2\0\0`, then `u32` attach-point count, frame count, fps and name-blob length, then the attach-point keys separated by NUL and padded to 4 bytes, then frames × points records of `f32`. A `TANIM1` record is 7 floats (position xyz, quaternion xyzw); a `TANIM2` record is 12 (position, then the column-major 3x3 linear part, used where a clip scales a part). A rig's rest pose is frame 0 of the clip its `rest_from` names (usually `unarmed_idle`), or the skeleton's bind pose when it has no clips.

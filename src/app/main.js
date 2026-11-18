@@ -167,7 +167,7 @@ async function showDrop() {
   try { res = resolveDrop(state.rigMap, files, getRig); } catch (e) { toast(e.message, 'error'); setStatus(''); return; }
   state.selected = res.skeleton;
   renderList();
-  show({ kind: 'drop', title: name, ...res });
+  await show({ kind: 'drop', title: name, ...res });
 }
 
 async function showRig(name) {
@@ -176,7 +176,7 @@ async function showRig(name) {
     const rig = await getRigAsync(name);
     state.selected = name;
     renderList();
-    show({ kind: 'rig', title: name, skeleton: name, rig, model: markerModel(rig, name), report: null });
+    await show({ kind: 'rig', title: name, skeleton: name, rig, model: markerModel(rig, name), report: null });
   } catch (e) { toast(e.message, 'error'); setStatus(''); }
 }
 
@@ -187,7 +187,7 @@ async function showPrefab(prefab) {
   try {
     if (skel) await getRigAsync(skel);
     const res = await resolvePrefab(state.rigMap, prefab, indexOfGame(), readGame, getRig);
-    show({ kind: 'prefab', title: prefabStem(prefab), prefab, ...res });
+    await show({ kind: 'prefab', title: prefabStem(prefab), prefab, ...res });
   } catch (e) { toast(e.message, 'error'); setStatus(''); }
 }
 

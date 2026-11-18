@@ -28,7 +28,7 @@ Trove-GR turns blueprint files into a posed, animated creature in four stages. E
 
 ## Placement is authoritative
 
-Every part's skeleton and attach point comes from the game's prefab bindings. There are no fallbacks on part names: if the bindings don't place a part, the report says why and the part is not drawn. The binding rows keep the game's order, because the first row for a blueprint decides its skeleton and owner.
+Every part's skeleton and attach point comes from the game's prefab bindings. There are no fallbacks on part names: if the bindings don't place a part, the report says why and the part is not drawn. The binding rows are sorted by prefab, then blueprint, in byte order, as the reference server loads them, because the first row for a blueprint decides its skeleton and owner.
 
 ## Numerical parity
 
