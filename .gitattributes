@@ -1,0 +1,6 @@
+* text=auto eol=lf
+*.png binary
+*.anim binary
+*.blueprint binary
+*.tmod binary
+*.dll binary

@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark" />
+    <meta name="theme-color" content="#0c0d11" />
+    <meta name="description" content="View Trove creatures in the browser: blueprint parts placed on the game's own rigs, with every animation. Your files stay on your machine." />
+    <title>Trove-GR</title>
+    <link rel="icon" href="/icon.png" type="image/png" />
+  </head>
+  <body>
+    <div class="app" id="app">
+      <header class="topbar">
+        <button class="icon-btn only-narrow" id="toggle-sidebar" type="button" aria-label="Show rigs" aria-controls="sidebar" aria-expanded="false"></button>
+        <div class="brand">
+          <img class="brand-mark" src="/icon.png" alt="" width="22" height="22" />
+          <span class="brand-name">Trove-GR</span>
+          <span class="version-chip" id="version-chip"></span>
+        </div>
+        <div class="topbar-actions">
+          <button class="btn btn-primary" id="open-files" type="button"></button>
+          <button class="btn" id="open-folder" type="button"></button>
+          <button class="btn btn-ghost" id="open-rigs" type="button" title="Use rigs decoded with the trove-gr tool"></button>
+          <button class="icon-btn" id="toggle-inspector" type="button" aria-label="Details panel" aria-controls="inspector" aria-pressed="true"></button>
+        </div>
+        <input type="file" id="files-input" accept=".blueprint,.tmod" multiple hidden />
+        <input type="file" id="folder-input" webkitdirectory multiple hidden />
+        <input type="file" id="rigs-input" webkitdirectory multiple hidden />
+      </header>
+
+      <aside class="sidebar" id="sidebar" aria-label="Rigs and creatures">
+        <div class="sidebar-head">
+          <div class="tabs" role="tablist" aria-label="Browse">
+            <button class="tab" id="tab-rigs" role="tab" aria-selected="true" aria-controls="list" type="button">Rigs</button>
+            <button class="tab" id="tab-creatures" role="tab" aria-selected="false" aria-controls="list" type="button">Creatures</button>
+          </div>
+          <label class="search">
+            <span class="search-icon" id="search-icon"></span>
+            <input id="search" type="search" placeholder="Filter rigs" aria-label="Filter" autocomplete="off" spellcheck="false" />
+            <kbd aria-hidden="true">/</kbd>
+          </label>
+          <div class="list-count" id="list-count" aria-live="polite"></div>
+        </div>
+        <div class="effect-list" id="list" role="listbox" tabindex="0" aria-label="Rigs"></div>
+      </aside>
+
+      <main class="stage" id="stage">
+        <div class="viewer-host" id="viewer-host">
+          <div class="viewer-stage" id="viewer-stage"></div>
+          <div class="viewer-bar" id="viewer-bar"></div>
+        </div>
+
+        <div class="hud">
+          <div class="hud-title">
+            <span class="effect-title" id="title"></span>
+            <span class="effect-status" id="status" aria-live="polite"></span>
+          </div>
+        </div>
+
+        <section class="empty" id="empty" aria-labelledby="empty-title">
+          <div class="empty-card">
+            <h1 id="empty-title">See Trove creatures move</h1>
+            <p>Drop a creature's <code>.blueprint</code> parts or a <code>.tmod</code>, and each part lands on the attach point the game itself binds it to, ready to play every animation the rig has. Or pick a rig on the left to browse its animations. Files are read from your disk and never uploaded.</p>
+            <div class="empty-actions">
+              <button class="btn btn-primary" id="empty-files" type="button"></button>
+              <button class="btn" id="empty-folder" type="button"></button>
+            </div>
+            <details class="empty-more">
+              <summary>Where do the parts come from?</summary>
+              <p>A mod's <code>.tmod</code> carries its parts. For the game's own creatures, extract Trove's archives with a modding tool, open the <code>blueprints</code> folder, then pick a creature under Creatures. Parts the game does not bind to a rig are listed, never guessed onto one.</p>
+            </details>
+          </div>
+        </section>
+
+        <div class="drop-overlay" id="drop-overlay" hidden>
+          <div class="drop-card">Drop blueprints, a .tmod or a folder</div>
+        </div>
+        <div class="fatal" id="fatal" hidden></div>
+        <div class="toast" id="toast" role="status" aria-live="polite"></div>
+      </main>
+
+      <aside class="inspector" id="inspector" aria-label="Details"></aside>
+    </div>
+
+    <script type="module" src="/src/app/main.js"></script>
+  </body>
+</html>

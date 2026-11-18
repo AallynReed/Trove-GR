@@ -1,0 +1,39 @@
+{
+  "name": "trove-gr",
+  "version": "0.1.0",
+  "description": "Browser viewer for Trove creatures: blueprint voxel parts on the game's Granny rigs, with animation playback.",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.13"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "node --test",
+    "lint": "eslint .",
+    "check": "npm run lint && npm test && npm run build",
+    "bindings": "node scripts/bindings.mjs",
+    "rig-index": "node scripts/rig-index.mjs",
+    "corpus": "node scripts/corpus-check.mjs"
+  },
+  "keywords": [
+    "trove",
+    "blueprint",
+    "voxel",
+    "granny",
+    "animation",
+    "webgl"
+  ],
+  "dependencies": {
+    "three": "0.134.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.11.0",
+    "globals": "^17.12.0",
+    "vite": "^8.3.1"
+  }
+}
