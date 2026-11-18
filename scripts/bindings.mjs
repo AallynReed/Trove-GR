@@ -3,7 +3,6 @@
 // Usage: node scripts/bindings.mjs <rig_binding.csv> [out.json]
 import { readFileSync, writeFileSync } from 'node:fs';
 import { pathToFileURL } from 'node:url';
-import { byteCmp } from '../src/rig/bindings.js';
 
 export function parseCsv(text) {
   const lines = text.split(/\r?\n/).filter(Boolean);
@@ -31,7 +30,7 @@ export function compact(rows) {
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const [src, out = 'public/data/bindings.json'] = process.argv.slice(2);
   if (!src) { console.error('usage: node scripts/bindings.mjs <rig_binding.csv> [out.json]'); process.exit(2); }
-  const rows = parseCsv(readFileSync(src, 'utf8')).sort((a, b) => byteCmp(a[0], b[0]) || byteCmp(a[1], b[1]));
+  const rows = parseCsv(readFileSync(src, 'utf8'));  // keep the export order: the server reads ORDER BY prefab, blueprint under en_US collation
   const c = compact(rows);
   writeFileSync(out, JSON.stringify(c));
   console.log(`${rows.length} rows, ${c.prefabs.length} prefabs, ${c.skeletons.length} skeletons -> ${out}`);
