@@ -86,7 +86,15 @@ A game creature opened from **Creatures** uses its prefab's own part list. When 
 
 A clip is little-endian: the 8-byte magic `TANIM1\0\0` or `TANIM2\0\0`, then `u32` attach-point count, frame count, fps and name-blob length, then the attach-point keys separated by NUL and padded to 4 bytes, then frames × points records of `f32`. A `TANIM1` record is 7 floats (position xyz, quaternion xyzw); a `TANIM2` record is 12 (position, then the column-major 3x3 linear part, used where a clip scales a part). A rig's rest pose is frame 0 of the clip its `rest_from` names (usually `unarmed_idle`), or the skeleton's bind pose when it has no clips.
 
-The rigs, clips and graphs were decoded from the game's Granny files with the tool in [`tools/granny`](tools/granny/README.md), which also runs against a Trove install to regenerate them.
+## Decoding the rigs yourself
+
+The rigs, clips and graphs were decoded from the game's Granny files by `trove-gr.exe`, a Rust command-line tool in [`tools/granny`](tools/granny/README.md). It reads a Trove install's archives directly, so after a game update you can rebuild the whole set and open it with **Rigs folder**:
+
+```powershell
+.\trove-gr.exe --trove "<Trove install>\Live" --granny <path>\granny2_x64.dll --out .\rigs
+```
+
+It needs Windows and your own Granny 2.11 or later `granny2_x64.dll`; the Granny SDK is proprietary and is not included. Pushing a `v*` tag builds the exe and attaches it to a GitHub Release. Placement still uses the shipped bindings, which come from the live game.
 
 ## Development
 

@@ -12,4 +12,4 @@ First standalone release, split out of the creature viewer in KiwiAPI.
 - Placement from the game's prefab bindings, matching the reference server's results exactly.
 - 325 rigs, 3,254 animation clips and 261 animation graphs built in.
 - Rig browsing with attach-point markers, game creatures from an extracted `blueprints` folder, and rigs loaded from a folder.
-- The offline Granny decoder in `tools/granny`.
+- `trove-gr.exe`, the Granny decoder in `tools/granny`, which rebuilds the rigs straight from a Trove install.

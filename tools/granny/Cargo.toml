@@ -1,0 +1,24 @@
+[package]
+name = "trove-gr"
+version = "0.1.0"
+edition = "2024"
+description = "Builds the viewer's rigs, animation graphs and .anim clips from a Trove install"
+license = "MIT"
+publish = false
+
+[[bin]]
+name = "trove-gr"
+path = "src/main.rs"
+
+[dependencies]
+anyhow = "1"
+clap = { version = "4", features = ["derive"] }
+flate2 = "1"
+libloading = "0.8"
+memchr = "2"
+serde_json = { version = "1", features = ["preserve_order"] }
+
+[profile.release]
+opt-level = 3
+lto = "thin"
+codegen-units = 1

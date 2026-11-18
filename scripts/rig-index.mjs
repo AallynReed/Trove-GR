@@ -4,9 +4,9 @@ import { readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { pathToFileURL } from 'node:url';
 
 export function rigIndex(dir) {
-  const rigs = readdirSync(dir).filter((n) => n.endsWith('.rig.json')).sort().map((n) => {
-    const r = JSON.parse(readFileSync(`${dir}/${n}`, 'utf8'));
-    return { name: n.slice(0, -9), aps: Object.keys(r.rest || {}).length, clips: Object.keys(r.animations || {}).length };
+  const rigs = readdirSync(dir).filter((n) => n.endsWith('.rig.json')).map((n) => n.slice(0, -9)).sort().map((name) => {
+    const r = JSON.parse(readFileSync(`${dir}/${name}.rig.json`, 'utf8'));
+    return { name, aps: Object.keys(r.rest || {}).length, clips: Object.keys(r.animations || {}).length };
   });
   return { rigs };
 }
